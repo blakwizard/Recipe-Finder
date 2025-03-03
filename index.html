@@ -1,0 +1,75 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodies</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body>
+    <div class="top-nav">
+        <div class="logo"><p>FoodSense</p></div>
+
+        <a href="https://github.com/blakwizard" class="author" target="_blank">chumskiisama</a>
+    </div>
+    <div class="main-container">
+        <div class="top-content">
+            <div class="main-text">
+                <h1>Find & Cook – The Easiest Way to Get Recipes!</h1>
+                <p>Search by meal name and get step-by-step recipes!</p>
+            </div>
+
+            <form action="" id="mealForm">
+                <div class="form-group">
+                    <input type="search" name="search" id="mealName" placeholder="Search for a meal... (e.g., Arrabiata, Pasta)">
+                    <button class="findBtn" type="submit"><span class="material-symbols-outlined">search</span></button>
+                </div>
+                
+            </form>
+        </div>
+
+        <div class="hide-result searchresult-container" id="searchResult" >
+            <div class="search-top-content">
+                <div class="search-img">
+                    <img src="img/37449.jpg" alt="" id="mealImg">
+                </div>
+                <div class="meal-title-category-locale">
+                    <h1 id="mealTitle">Meal Name</h1>
+                    <div class="mealLocale">
+                        <span class="material-symbols-outlined">category</span>
+                        <p id="mealCat">Meal category</p>
+                    </div>
+                    <div class="mealLocale">
+                        <span class="material-symbols-outlined">location_on</span>
+                        <p id="mealLocale">Meal locale</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="search-bottom">
+                <div class="ingredients-container">
+                    <p class="ingre">Ingredients</p>
+                    <div class="ingredient-wrapper ">
+                        <p id="ingredientWrap">ingredient 1</p>
+                    </div>
+                </div>
+
+                <div class="instruction-container">
+                    <p class="ingre" >Instructions</p>
+                    <p id="mealInstruct" class="mealInstruct">Bring a large pot of water to a boil. Add kosher salt to the boiling water, then add the pasta. Cook according to the package instructions, about 9 minutes.\r\nIn a large skillet over medium-high heat, add the olive oil and heat until the oil starts to shimmer. Add the garlic and cook, stirring, until fragrant, 1 to 2 minutes. Add the chopped tomatoes, red chile flakes, Italian seasoning and salt and pepper to taste. Bring to a boil and cook for 5 minutes. Remove from the heat and add the chopped basil.\r\nDrain the pasta and add it to the sauce. Garnish with Parmigiano-Reggiano flakes and more basil and serve warm.</p>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+
+
+    <script src="index.js"></script>
+</body>
+</html>
