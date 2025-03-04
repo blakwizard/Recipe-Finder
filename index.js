@@ -33,6 +33,9 @@
 //     }
 // })
 
+
+//bringing in html elements into js file in order to be able modify them using js
+
 let searchForm = document.getElementById("mealForm")
 let dishName = document.getElementById("mealName")
 let dishImage =document.getElementById("mealImg")
@@ -43,8 +46,14 @@ let dishIngredients =document.getElementById("ingredientWrap")
 let dishInstruction =document.getElementById("mealInstruct")
 let dishSearchResult =document.getElementById("searchResult")
 
+
+//adding event listener to the form which will get the name of meals enter by users
+//the event listener added is a onsubmit event which will fire the functions in it once a user submit the form
+
 searchForm.addEventListener("submit", function(e){
 
+
+    //this prevent the usual behaviour of form submission which is instantanious 
     e.preventDefault()
 
     let request = new XMLHttpRequest()
@@ -57,23 +66,35 @@ searchForm.addEventListener("submit", function(e){
     
     request.send()
 
+
+    //this check the status and validity of our api call
     request.onreadystatechange = function(){
         if(request.readyState === 4 && request.status === 200){
 
             let meals = JSON.parse(request.responseText)
 
+
+            //getting meal image from the api and setting it up to be displayed on the ui
             let mealImage = meals.meals[0].strMealThumb
             dishImage.setAttribute("src", mealImage)
 
+
+            //getting meal name
             let myMealTitle =  meals.meals[0].strMeal
             dishTitle.textContent = myMealTitle
 
+
+            //getting meal category
             let myMealCategory =  meals.meals[0].strCategory
             dishCategory.textContent = myMealCategory
 
+
+            //getting the meal locality or area where it's popular
             let myMealArea =  meals.meals[0].strArea
             dishLocation.textContent = myMealArea
 
+
+            //this gets the list of all meal ingredients
             let myMealIngredientsOne =  meals.meals[0].strIngredient1
             let myMealIngredientsTwo =  meals.meals[0].strIngredient2
             let myMealIngredientsThree =  meals.meals[0].strIngredient3
@@ -98,9 +119,12 @@ searchForm.addEventListener("submit", function(e){
             dishIngredients.textContent = myMealIngredientsOne.concat(" ", myMealIngredientsTwo, " ", myMealIngredientsThree, " ", myMealIngredientsFour, " ", myMealIngredientsFive, " " ,myMealIngredientsSix, " ",myMealIngredientsSeven, " ",myMealIngredientsEight, " ", myMealIngredientsNine, " ",myMealIngredientsTen)
 
 
+            //getting meal instructions
             let myMealInstructions =  meals.meals[0].strInstructions
             dishInstruction.textContent = myMealInstructions
 
+
+            //displaying the data in ui by removing the hide-result class
             if(dishSearchResult.classList.contains("searchresult-container")){
                 dishSearchResult.classList.remove("hide-result")
                
